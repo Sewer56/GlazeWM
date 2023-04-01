@@ -46,6 +46,15 @@
             <DataTemplate DataType="{x:Type components:MediaComponentViewModel}">
               <components:MediaComponent Padding="{Binding Padding}" Background="{Binding Background}" />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type components:CPUStatsComponentViewModel}">
+              <components:CPUStatsComponent />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type components:GPUStatsComponentViewModel}">
+              <components:GPUStatsComponent />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type components:RAMStatsComponentViewModel}">
+              <components:RAMStatsComponent />
+            </DataTemplate>
           </ContentPresenter.Resources>
         </ContentPresenter>
       </Grid>
