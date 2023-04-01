@@ -17,7 +17,7 @@ namespace GlazeWM.Domain.UserConfigs
     /// <summary>
     /// Unit of measurement.  Either "celcius" or "fahrenheit"
     /// </summary>
-    public string TemperatureUnit { get; set; } = "celcius";
+    public string TemperatureUnit { get; set; } = "celsius";
     /// <summary>
     /// Timezone to retreive sunset and sunrise time.
     /// </summary>
