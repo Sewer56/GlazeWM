@@ -106,6 +106,7 @@ namespace GlazeWM.Bar
         WindowTitleComponentConfig wtcc => new WindowTitleComponentViewModel(this, wtcc),
         SystemTrayComponentConfig stcc => new SystemTrayComponentViewModel(this, stcc),
         MediaComponentConfig mcc => new MediaComponentViewModel(this, mcc),
+        ScriptedTextConfig stc => new ScriptedTextComponentViewModel(this, stc),
         _ => throw new ArgumentOutOfRangeException(nameof(config)),
       });
     }
