@@ -58,6 +58,11 @@ namespace GlazeWM.Domain.UserConfigs
           jsonObject.RootElement.ToString(),
           options
         ),
+        "weather" =>
+        JsonSerializer.Deserialize<WeatherComponentConfig>(
+          jsonObject.RootElement.ToString(),
+          options
+        ),
         "gpu stats" =>
           JsonSerializer.Deserialize<GPUStatsComponentConfig>(
             jsonObject.RootElement.ToString(),

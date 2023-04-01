@@ -27,6 +27,11 @@ bar:
       focused_workspace_background: "#ffffff33"
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
+    - type: "weather"
+      temperature_unit: "fahrenheit"
+      timezone: "EST"
+      latitude: 40.7128
+      longitude: -74.0060
     - type: "cpu stats"
     - type: "gpu stats"
     - type: "ram stats"

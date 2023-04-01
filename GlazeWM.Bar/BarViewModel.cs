@@ -99,6 +99,7 @@ namespace GlazeWM.Bar
         CPUStatsComponentConfig cscc => new CPUStatsComponentViewModel(this, cscc),
         GPUStatsComponentConfig gscc => new GPUStatsComponentViewModel(this, gscc),
         RAMStatsComponentConfig rscc => new RAMStatsComponentViewModel(this, rscc),
+        WeatherComponentConfig wcc => new WeatherComponentViewModel(this, wcc),
         NetworkComponentConfig ncc => new NetworkComponentViewModel(this, ncc),
         TilingDirectionComponentConfig tdc => new TilingDirectionComponentViewModel(this, tdc),
         WorkspacesComponentConfig wcc => new WorkspacesComponentViewModel(this, wcc),
