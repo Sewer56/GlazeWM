@@ -4,7 +4,9 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Reactive.Linq;
+using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 using GlazeWM.Domain.UserConfigs;
 
 namespace GlazeWM.Bar.Components
@@ -40,8 +42,15 @@ namespace GlazeWM.Bar.Components
       var lat = _config.Latitude.ToString();
       var lng = _config.Longitude.ToString();
 
-      HttpClient client = new HttpClient();
-      var res = client.GetStringAsync("https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng + "&temperature_unit=" + _config.TemperatureUnit + "&current_weather=true&daily=sunset,sunrise&timezone=" + _config.Timezone).Result;
+      using var client = new HttpClient();
+      var webRequest = new HttpRequestMessage(HttpMethod.Get, "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng +
+                                                              "&temperature_unit=" + _config.TemperatureUnit +
+                                                              "&current_weather=true&daily=sunset,sunrise&timezone=" + _config.Timezone);
+
+      var response = client.Send(webRequest);
+
+      using var reader = new StreamReader(response.Content.ReadAsStream());
+      var res = reader.ReadToEnd();
       var weather = JsonSerializer.Deserialize<MeteoWeatherResult>(res);
 
       var isDaylight = isDaytime(weather.daily);
@@ -87,6 +96,7 @@ namespace GlazeWM.Bar.Components
       WeatherComponentConfig config) : base(parentViewModel, config)
     {
       Observable.Interval(TimeSpan.FromSeconds(3 * 60))
+        .TakeUntil(_parentViewModel.WindowClosing)
         .Subscribe(_ => OnPropertyChanged(nameof(FormattedWeather)));
     }
   }

@@ -21,7 +21,6 @@ namespace GlazeWM.Bar.Components
         .Interval(TimeSpan.FromSeconds(10))
         .TakeUntil(_parentViewModel.WindowClosing)
         .Subscribe(_ => OnPropertyChanged(nameof(Text)));
-
     }
   }
 }

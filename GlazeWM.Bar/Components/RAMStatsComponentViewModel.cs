@@ -19,6 +19,7 @@ namespace GlazeWM.Bar.Components
       RAMStatsComponentConfig config) : base(parentViewModel, config)
     {
       Observable.Interval(TimeSpan.FromSeconds(2))
+        .TakeUntil(_parentViewModel.WindowClosing)
         .Subscribe(_ => OnPropertyChanged(nameof(FormattedText)));
     }
   }
