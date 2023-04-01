@@ -47,19 +47,19 @@
               <components:MediaComponent Padding="{Binding Padding}" Background="{Binding Background}" />
             </DataTemplate>
             <DataTemplate DataType="{x:Type components:CPUStatsComponentViewModel}">
-              <components:CPUStatsComponent />
+              <components:CPUStatsComponent Padding="{Binding Padding}" Background="{Binding Background}" />
             </DataTemplate>
             <DataTemplate DataType="{x:Type components:GPUStatsComponentViewModel}">
-              <components:GPUStatsComponent />
+              <components:GPUStatsComponent Padding="{Binding Padding}" Background="{Binding Background}" />
             </DataTemplate>
             <DataTemplate DataType="{x:Type components:RAMStatsComponentViewModel}">
-              <components:RAMStatsComponent />
+              <components:RAMStatsComponent Padding="{Binding Padding}" Background="{Binding Background}" />
             </DataTemplate>
             <DataTemplate DataType="{x:Type components:ScriptedTextComponentViewModel}">
-              <components:ScriptedTextComponent />
+              <components:ScriptedTextComponent Padding="{Binding Padding}" Background="{Binding Background}" />
             </DataTemplate>
             <DataTemplate DataType="{x:Type components:TextFileComponentViewModel}">
-              <components:TextFileComponent />
+              <components:TextFileComponent Padding="{Binding Padding}" Background="{Binding Background}" />
             </DataTemplate>
           </ContentPresenter.Resources>
         </ContentPresenter>
