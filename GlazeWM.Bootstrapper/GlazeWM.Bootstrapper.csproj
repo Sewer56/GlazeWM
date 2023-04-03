@@ -6,7 +6,24 @@
     <DebugType>embedded</DebugType>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     <AssemblyName>GlazeWM</AssemblyName>
+
+    <!-- IL Trimming Support for Framework Dependent Apps. Unofficial.
+     If you set this to true, trimming will be enabled when you publish the mod.
+     Test trimming with: `BuildLinked.ps1` in PowerShell. -->
+    <ReloadedILLink>false</ReloadedILLink>
+    <TrimmerDefaultAction>Link</TrimmerDefaultAction>
+    <TrimmerSingleWarn>false</TrimmerSingleWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ReloadedLinkRoots Include="GlazeWM" />
+    <ReloadedLinkRoots Include="GlazeWM.Bar" />
+    <ReloadedLinkRoots Include="GlazeWM.Domain" />
+    <!-- Add assemblies to be trimmed. You might need to add their dependencies too!  -->
+    <ReloadedLinkAssemblies Include="Microsoft.Windows.SDK.NET" />
+  </ItemGroup>
+  
+  <Import Project="Reloaded.Trimming.targets" />
 
   <ItemGroup>
     <ProjectReference Include="..\GlazeWM.Bar\GlazeWM.Bar.csproj" />
